@@ -1,6 +1,6 @@
 package com.Inti.backend.service;
 
-import com.Inti.backend.model.Users;
+import com.Inti.backend.model.Products;
 import com.Inti.backend.repository.IProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,41 +14,38 @@ public class ProductService implements IProductsService{
         private IProductsRepository productsRepository;
 
         @Override
-        public List<Users> getUsers() {
-            List<Users> usersList = usersRepository.findAll();
+        public List<Products> getProducts() {
+            List<Products> usersList = productsRepository.findAll();
             return usersList;
         }
 
         @Override
-        public void saveUser(Users user) {
-            usersRepository.save(user);
+        public void saveProduct(Products product) {
+            productsRepository.save(product);
         }
 
         @Override
-        public void deleteUser(Long id) {
-            usersRepository.deleteById(id);
+        public void deleteProduct(Long id) {
+            productsRepository.deleteById(id);
         }
 
         @Override
-        public Users findUser(Long id) {
-            Users user = usersRepository.findById(id).orElse(null);
-            return null;
+        public Products findProduct(Long id) {
+            Products product = productsRepository.findById(id).orElse(null);
+            return product;
         }
 
-        public void editUser(Long id, Users user){
-            Users foundedUser = usersRepository.findById(id).orElse(null);
-            if (foundedUser != null){
-                foundedUser.setName(user.getName());
-                foundedUser.setEmail(user.getEmail());
-                foundedUser.setPhone(user.getPhone());
-                foundedUser.setPassword(user.getPassword());
-
-                usersRepository.save(foundedUser);
-
-
+        public void editProduct(Long id, Products product){
+            Products foundedProduct = productsRepository.findById(id).orElse(null);
+            if (foundedProduct != null){
+                foundedProduct.setName(product.getName());
+                foundedProduct.setQuantity(product.getQuantity());
+                foundedProduct.setPrice(product.getPrice());
+                foundedProduct.setDescription(product.getDescription());
+                foundedProduct.setImage(product.getImage());
+                productsRepository.save(foundedProduct);
             } else {
-                System.out.println("User was not found" + id);
+                System.out.println("User was not found: " + id);
             }
         }
-    }
 }

@@ -6,9 +6,9 @@ import java.util.List;
 public interface ICategoriesService {
     public List<Categories> getCategories();
 
-    public void saveCategorie(Categories categorie);
+    public void saveCategory(Categories category);
 
-    public void deleteCategorie(Long id);
+    public void deleteCategory(Long id);
 
-    public Categories findCategorie(Long id);
+    public Categories findCategories(Long id);
 }

@@ -32,7 +32,7 @@ public class UsersService implements IUsersService{
     @Override
     public Users findUser(Long id) {
         Users user = usersRepository.findById(id).orElse(null);
-        return null;
+        return user;
     }
 
     public void editUser(Long id, Users user){
@@ -47,7 +47,7 @@ public class UsersService implements IUsersService{
 
 
         } else {
-            System.out.println("User was not found" + id);
+            System.out.println("User was not found: " + id);
         }
     }
 }

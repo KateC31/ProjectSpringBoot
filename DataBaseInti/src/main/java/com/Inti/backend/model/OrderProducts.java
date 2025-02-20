@@ -17,6 +17,7 @@ public class OrderProducts {
     @ManyToOne
     @JoinColumn(name="product_id", nullable = false)
     private Products product_id;
+
     private Long quantity;
 
     public OrderProducts(Long id_orderProducts, Orders order_id, Products product_id, Long quantity) {
@@ -24,6 +25,10 @@ public class OrderProducts {
         this.order_id = order_id;
         this.product_id = product_id;
         this.quantity = quantity;
+    }
+
+    public OrderProducts() {
+
     }
 
     public Long getId_orderProducts() {
