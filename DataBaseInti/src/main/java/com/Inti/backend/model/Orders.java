@@ -1,11 +1,14 @@
 package com.Inti.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "orders")
 public class Orders {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id_order;
@@ -17,6 +20,10 @@ public class Orders {
     @ManyToOne
     @JoinColumn(name="user_id", nullable = false)
     private Users user;
+
+    @OneToMany(mappedBy = "order_id", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<OrderProducts> orderProducts;
 
     public Orders(Long id_order, String state, Float total, Date purchase_date, Users user) {
         this.id_order = id_order;
@@ -44,4 +51,7 @@ public class Orders {
 
     public Users getUser() { return user; } // 🔥 Devuelve el objeto completo
     public void setUser(Users user) { this.user = user; } // 🔥 Se guarda la relación
+
+    public List<OrderProducts> getOrderProducts() { return orderProducts; }
+    public void setOrderProducts(List<OrderProducts> orderProducts) { this.orderProducts = orderProducts; }
 }

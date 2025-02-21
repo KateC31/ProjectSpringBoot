@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Categories {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id_categories;

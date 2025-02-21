@@ -35,6 +35,7 @@ public class CategoriesService implements ICategoriesService {
         return category;
     }
 
+    @Override
     public void editCategory(Long id, Categories category) {
         Categories foundedCategory = categoriesRepository.findById(id).orElse(null);
         if (foundedCategory != null) {

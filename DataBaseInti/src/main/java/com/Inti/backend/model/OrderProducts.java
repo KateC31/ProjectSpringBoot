@@ -1,17 +1,19 @@
 package com.Inti.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.extern.java.Log;
 
 @Entity
-
 public class OrderProducts {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id_orderProducts;
 
     @ManyToOne
     @JoinColumn(name="order_id", nullable = false)
+    @JsonBackReference
     private Orders order_id;
 
     @ManyToOne
