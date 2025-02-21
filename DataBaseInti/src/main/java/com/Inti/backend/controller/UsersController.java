@@ -11,10 +11,11 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/users")
 public class UsersController {
-    UsersService usersService;
-    @Autowired
-    public UsersController(UsersService usersService) {
 
+    @Autowired
+    UsersService usersService;
+
+    public UsersController(UsersService usersService) {
         this.usersService = usersService;
     }
 
@@ -24,13 +25,13 @@ public class UsersController {
     }
 
     @PostMapping
-    public ResponseEntity<String> saveUsers(@RequestBody Users users){
-        usersService.saveUser(users);
+    public ResponseEntity<String> saveUser(@RequestBody Users user) {
+        usersService.saveUser(user);
         return ResponseEntity.ok("User Created");
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteUsers(@PathVariable Long id){
+    public ResponseEntity<String> deleteUser(@PathVariable Long id){
         usersService.deleteUser(id);
         return ResponseEntity.ok("User Deleted");
     }

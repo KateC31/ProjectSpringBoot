@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/DataBaseInti/DataBaseInti.iml" filepath="$PROJECT_DIR$/DataBaseInti/DataBaseInti.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/ProjectSpringBoot.iml" filepath="$PROJECT_DIR$/.idea/ProjectSpringBoot.iml" />
     </modules>
   </component>

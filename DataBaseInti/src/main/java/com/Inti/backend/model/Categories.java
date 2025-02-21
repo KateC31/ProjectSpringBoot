@@ -20,6 +20,10 @@ public class Categories {
 
     }
 
+    public Categories() {
+
+    }
+
     public Long getId_categories() {
         return id_categories;
     }
