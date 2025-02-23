@@ -1,12 +1,11 @@
 package com.Inti.backend.controller;
 
-import com.Inti.backend.model.Categories;
-import com.Inti.backend.service.CategoriesService;
-import com.Inti.backend.service.ICategoriesService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import com.Inti.backend.service.ICategoriesService;
+import com.Inti.backend.service.CategoriesService;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.http.ResponseEntity;
+import com.Inti.backend.model.Categories;
 import java.util.List;
 
 @RestController

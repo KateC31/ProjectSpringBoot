@@ -39,6 +39,15 @@ public class Products {
         this.category = category;
     }
 
+    public Products(String name, Long quantity, Float price, String description, String image, Categories category) {
+        this.name = name;
+        this.quantity = quantity;
+        this.price = price;
+        this.description = description;
+        this.image = image;
+        this.category = category;
+    }
+
     public Products() {
 
     }

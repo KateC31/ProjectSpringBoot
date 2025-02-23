@@ -13,12 +13,39 @@ public class Categories {
     private Long id_categories;
     private String name;
     private String description;
+    private String imageCover;
 
-    public Categories(Long id_categories, String name, String description) {
+    public String getImageHover() {
+        return imageHover;
+    }
+
+    public void setImageHover(String imageHover) {
+        this.imageHover = imageHover;
+    }
+
+    public String getImageCover() {
+        return imageCover;
+    }
+
+    public void setImageCover(String imageCover) {
+        this.imageCover = imageCover;
+    }
+
+    private String imageHover;
+
+    public Categories(Long id_categories, String name, String description, String imageCover, String imageHover) {
         this.id_categories = id_categories;
         this.name = name;
         this.description = description;
+        this.imageCover = imageCover;
+        this.imageHover = imageHover;
+    }
 
+    public Categories(String name, String description, String imageCover, String imageHover) {
+        this.name = name;
+        this.description = description;
+        this.imageCover = imageCover;
+        this.imageHover = imageHover;
     }
 
     public Categories() {
@@ -48,6 +75,4 @@ public class Categories {
     public void setDescription(String description) {
         this.description = description;
     }
-
-
 }

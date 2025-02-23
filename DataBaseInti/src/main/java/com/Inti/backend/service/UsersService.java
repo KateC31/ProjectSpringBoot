@@ -1,17 +1,51 @@
 package com.Inti.backend.service;
 
-import com.Inti.backend.model.Users;
-import com.Inti.backend.repository.IUsersRepository;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
+import com.Inti.backend.repository.IUsersRepository;
 import org.springframework.stereotype.Service;
+import com.Inti.backend.model.Users;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class UsersService implements IUsersService{
+public class UsersService implements IUsersService {
 
     @Autowired
     private IUsersRepository usersRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    public Users registerUser(Users user) {
+        Users newUser = new Users();
+        newUser.setName(user.getName());
+        newUser.setEmail(user.getEmail());
+        newUser.setPhone(user.getPhone());
+        newUser.setPassword(passwordEncoder.encode(user.getPassword()));
+
+        return usersRepository.save(newUser);
+    }
+
+    @Override
+    public UserDetails findUserByEmail(String email) {
+        Users user = usersRepository.findByEmail(email);
+        if(user == null) {
+            throw new UsernameNotFoundException("User not found");
+        }
+        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), new ArrayList<>());
+    }
+
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Users user = usersRepository.findByEmail(username);
+        if(user == null) {
+            throw new UsernameNotFoundException("User not found");
+        }
+        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), new ArrayList<>());
+    }
 
     @Override
     public List<Users> getUsers() {

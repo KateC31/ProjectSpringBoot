@@ -41,6 +41,8 @@ public class CategoriesService implements ICategoriesService {
         if (foundedCategory != null) {
             foundedCategory.setName(category.getName());
             foundedCategory.setDescription(category.getDescription());
+            foundedCategory.setImageCover(category.getImageCover());
+            foundedCategory.setImageHover(category.getImageHover());
             categoriesRepository.save(foundedCategory);
         } else {
             System.out.println("Category not found: " + id);

@@ -1,10 +1,8 @@
 package com.Inti.backend.repository;
 
-
-import com.Inti.backend.model.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
+import com.Inti.backend.model.Users;
 import java.util.Optional;
 
 
@@ -12,4 +10,5 @@ import java.util.Optional;
 public interface IUsersRepository extends JpaRepository<Users,Long> {
     Optional<Users> findById(Long id);
 
+    Users findByEmail(String email);
 }
