@@ -71,7 +71,7 @@ public class ProductSeeder implements CommandLineRunner {
                 new ProductData("Vegan italian cream cheese", 30L, 9.99f, "Delicious italian plant-based cheese spread", 9L, "https://res.cloudinary.com/di1xiwdsn/image/upload/v1740373967/vegan_cheese-2_j7ivyo.jpg"),
 
                 new ProductData("Vegan Chocolate Cake", 50L, 19.99f, "Decadent plant-based chocolate cake", 10L, "https://res.cloudinary.com/di1xiwdsn/image/upload/v1740373956/chocolotae_vegan_exokfh.jpg"),
-                new ProductData("Gluten-Free Vegan Muffins", 80L, 12.99f, "Soft and tasty muffins for all diets", 10L, "https://res.cloudinary.com/di1xiwdsn/image/upload/v1740374602/brownies_rzjwfs.jpg"),
+                new ProductData("Gluten-Free Vegan Muffins", 80L, 12.99f, "Soft and tasty muffins for all diets", 10L, "https://res.cloudinary.com/di1xiwdsn/image/upload/v1740373955/muffins_gy7dp5.jpg"),
                 new ProductData("Coconut Flour Brownies", 70L, 14.99f, "Rich brownies made with coconut flour", 10L, "https://res.cloudinary.com/di1xiwdsn/image/upload/v1740374602/brownies_rzjwfs.jpg"),
                 new ProductData("Vegan cookies", 70L, 14.99f, "Vegan cookies", 10L, "https://res.cloudinary.com/di1xiwdsn/image/upload/v1740373938/cookies_h67hrd.jpg")
         );
